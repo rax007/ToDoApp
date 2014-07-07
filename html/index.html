@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>TO-DO APP</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head >
+
+<body class="body" ng-app="toDoApp">
+
+<div class="main" ng-controller="mainController">
+
+    <input type="text" name="task" ng-model="newTask"  onblur="if(value=='')  value= 'NewTask' " onfocus="value =' ' "/>
+    
+    
+    <select ng-model="priority">
+        <option value="High">High</option>
+        <option value="Medium">Medium</option>
+        <option value="Low">Low</option>
+
+    </select>
+
+    <button class="btn" ng-click="addTask(newTask, priority)">Add task</button>
+    <br/><br/><br/>
+
+</div>
+<div class="task-list-container" ng-controller="showListsController">
+    <table>
+        <tr ng-repeat="tasks in taskList">
+            <td class="space" >{{tasks.task}}</td>
+            <td class="space">{{tasks.priority}}</td>
+            <td class="space">{{tasks.time}}</td>
+            <td>
+                <button ng-click="removeTask($index)">done</button>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+<script src="../js/toDoApp.js"></script>
+</body>
+</html>

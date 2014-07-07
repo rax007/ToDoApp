@@ -1,0 +1,26 @@
+
+.body{
+    margin: 5% 20%;
+    border-spacing: 30px;
+}
+
+.btn{
+    height: 25px;
+    width: 100px;
+    background-color: darkblue;
+    color: white;
+    border: none;
+}
+.task-list-container{
+    background-color: aliceblue;
+    color: darkblue;
+}
+
+.space{
+    padding: 2px 25px;
+
+}
+
+.main{
+    margin: 0 20%;
+}
