@@ -24,6 +24,7 @@
     <br/><br/><br/>
 
 </div>
+<h3>TO-DO List</h3>
 <div class="task-list-container" ng-controller="showListsController">
     <table>
         <tr ng-repeat="tasks in taskList">
@@ -31,7 +32,7 @@
             <td class="space">{{tasks.priority}}</td>
             <td class="space">{{tasks.time}}</td>
             <td>
-                <button ng-click="removeTask($index)">done</button>
+                <button class="btn" ng-click="removeTask($index)">done</button>
             </td>
         </tr>
     </table>
