@@ -25,6 +25,7 @@ toDoApp.controller('showListsController', function ($scope, listService) {
 toDoApp.controller('mainController',function($scope, listService){
     $scope.priority = 'High';
     $scope.newTask = 'Enter New Task';
+    $scope.search = 'search';
 
    $scope.addTask= function (newTask, priority ) {
        if (newTask) {

@@ -4,42 +4,77 @@
     <meta charset="UTF-8">
     <title>TO-DO APP</title>
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap.css"/>
 </head >
 
 <body class="body" ng-app="toDoApp">
 
-<div class="main" ng-controller="mainController">
 
-    <input type="text" name="task" ng-model="newTask"  onblur="if(value=='')  value= 'NewTask' " onfocus="value =' ' "/>
-    
-    
-    <select ng-model="priority">
-        <option value="High">High</option>
-        <option value="Medium">Medium</option>
-        <option value="Low">Low</option>
-
-    </select>
-
-    <button class="btn" ng-click="addTask(newTask, priority)">Add task</button>
-    <br/><br/><br/>
+<div class=" col-sm-12  space">
+    <div style="float: left; ">
+        <input type="text" class="form-control"   ng-model="search" >
+    </div>
+    <div >
+        <button id="newTaskBtn" class="btn btn-primary col-md-4" data-toggle="modal" data-target=".bs-example-modal-sm">Add Task</button>
+    </div>
 
 </div>
-<h3>TO-DO List</h3>
-<div class="task-list-container" ng-controller="showListsController">
-    <table>
-        <tr ng-repeat="tasks in taskList">
-            <td class="space" >{{tasks.task}}</td>
-            <td class="space">{{tasks.priority}}</td>
-            <td class="space">{{tasks.time}}</td>
-            <td>
-                <button class="btn" ng-click="removeTask($index)">done</button>
-            </td>
-        </tr>
-    </table>
 
+<div class="col-sm-8 clear-both">
+    <div class="panel panel-primary clear-both">
+        <div class="panel-heading clear-both">
+            <h3 class="panel-title clear-both">TO-DO Task List</h3>
+        </div>
+        <div ng-controller="showListsController">
+            <table class="table ">
+                <thead>
+                <tr>
+                    <th>Task</th>
+                    <th>Priority</th>
+                    <th>Time</th>
+                    <th> </th>
+
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="tasks in taskList |filter: search">
+                    <td  >{{tasks.task}}</td>
+                    <td >{{tasks.priority}}</td>
+                    <td >{{tasks.time}}</td>
+                    <td>
+                        <button class="btn btn-danger" ng-click="removeTask($index)">done</button>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
+
+<!-- Small modal -->
+
+<div id="model" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content" ng-controller="mainController">
+            <input type="text" class="form-control" name="task" ng-model="newTask"  onblur="if(value=='')  value= 'NewTask' " onfocus="value =' ' "/>
+
+            <button class="blue-btn" ng-click="addTask(newTask, priority)">SAVE</button>
+            <select class="pull-right" ng-model="priority">
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+
+            </select>
+        </div>
+    </div>
+</div>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="../js/bootstrap.js"></script>
 <script src="../js/toDoApp.js"></script>
+<script src="../js/factories.js"></script>
+
 </body>
 </html>

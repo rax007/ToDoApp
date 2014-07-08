@@ -2,6 +2,8 @@
  * Created by rakesh on 7/7/14.
  */
 
-var factories = {};
-
-factories.list =
+$(document).ready(function () {
+    $('#newTaskBtn').click(function () {
+        $('model').modal('show');
+    })
+})

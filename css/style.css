@@ -2,9 +2,10 @@
 .body{
     margin: 5% 20%;
     border-spacing: 30px;
+    background-color: #bce8f1;
 }
 
-.btn{
+.blue-btn{
     height: 25px;
     width: 100px;
     background-color: darkblue;
@@ -12,15 +13,23 @@
     border: none;
 }
 .task-list-container{
-    background-color: aliceblue;
+    background-color: rgb(127, 219, 197);
+
     color: darkblue;
 }
 
-.space{
-    padding: 2px 25px;
+.search{
+    margin: 10px 2px 125px 10px;
 
+}
+.space{
+    padding: 2px 10px;
+    margin: 2px;
 }
 
 .main{
     margin: 0 20%;
+}
+.clear-both{
+    clear: both;
 }
